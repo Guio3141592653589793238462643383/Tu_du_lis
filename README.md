@@ -1,12 +1,166 @@
-# React + Vite
+📝 Tu-du-lis — Fullstack To-Do App
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Tu-du-lis es una aplicación fullstack para la gestión de tareas, construida con React (Vite) en el frontend, FastAPI en el backend y PostgreSQL como base de datos.
+El frontend se despliega en Netlify y el backend en Render.
 
-Currently, two official plugins are available:
+🚀 Tecnologías
+Frontend
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+React + Vite
 
-## Expanding the ESLint configuration
+Fetch API
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+Netlify (Hosting)
+
+Backend
+
+FastAPI
+
+Uvicorn
+
+PostgreSQL
+
+psycopg2
+
+Render (Hosting)
+
+📦 Estructura del proyecto
+Tu_du_lis/
+│
+├── backend/
+│   ├── main.py
+│   ├── requirements.txt
+│   ├── .env
+│   └── venv/
+│
+└── frontend/
+    ├── src/
+    ├── index.html
+    ├── vite.config.js
+    └── package.json
+
+⚙️ Backend (FastAPI)
+▶️ Ejecutar localmente
+
+Crear entorno virtual
+
+python -m venv venv
+
+
+Activarlo
+
+Windows:
+
+venv\Scripts\activate
+
+
+Linux/MacOS:
+
+source venv/bin/activate
+
+
+Instalar dependencias
+
+pip install -r requirements.txt
+
+
+Crear archivo .env
+
+DATABASE_URL=postgresql://<usuario>:<password>@<host>/<database>
+
+
+Ejecutar servidor
+
+uvicorn main:app --reload
+
+▶️ Endpoint principal
+Método	URL	Descripción
+GET	/tasks	Obtener tareas
+POST	/tasks	Crear nueva tarea
+PUT	/tasks/{id}	Actualizar tarea
+DELETE	/tasks/{id}	Eliminar tarea
+🌐 Frontend (React)
+▶️ Ejecutar localmente
+
+Instalar dependencias:
+
+npm install
+
+
+Ejecutar servidor de desarrollo:
+
+npm run dev
+
+
+Ver en el navegador:
+
+http://localhost:5173
+
+▶️ Conexión al backend
+
+Editar la URL del backend en tu frontend:
+
+const API_URL = "https://tu-du-lis.onrender.com";
+
+☁️ Deploy
+Backend en Render
+
+Subir backend a GitHub.
+
+Crear un servicio Web Service en Render.
+
+Configurar el Start Command:
+
+uvicorn main:app --host 0.0.0.0 --port $PORT
+
+
+Añadir variable de entorno:
+
+DATABASE_URL
+
+Frontend en Netlify
+
+Subir frontend a GitHub.
+
+En Netlify seleccionar “Deploy from Git”.
+
+Build command:
+
+npm run build
+
+
+Public directory:
+
+dist
+
+🗄️ requirements.txt (Cómo actualizarlo)
+
+Cada vez que instales una librería, ejecuta:
+
+pip freeze > requirements.txt
+
+
+Render usará este archivo para recrear tu entorno.
+
+🧹 .gitignore recomendado
+# Python
+venv/
+__pycache__/
+*.pyc
+.env
+
+# Node
+node_modules/
+dist/
+.DS_Store
+
+# Logs
+*.log
+
+✅ Estado final
+
+✔️ Backend funcionando en Render
+✔️ Frontend funcionando en Netlify
+✔️ Base de datos conectada
+✔️ CORS configurado
+✔️ Requests funcionando entre front y back
