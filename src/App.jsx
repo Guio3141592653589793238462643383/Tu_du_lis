@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { Trash2, Edit2 } from 'lucide-react';
 
-const API_URL = "http://127.0.0.1:8000/tasks";
+const API_URL = "https://tu-du-lis.onrender.com/tasks";
 
 function App() {
   const [tasks, setTasks] = useState([]);

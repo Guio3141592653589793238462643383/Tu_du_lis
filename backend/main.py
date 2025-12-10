@@ -14,7 +14,12 @@ DATABASE_URL = os.getenv("DATABASE_URL")
 app = FastAPI()
 
 # Habilitar CORS para React (localhost:3000)
-origins = ["http://localhost:3000"]
+origins = [
+    "http://localhost:3000",
+    "https://tu-du-lis.vercel.app",    # si tu frontend está en Vercel
+    "https://tu-du-lis.onrender.com",  
+    "*",  
+]
 
 app.add_middleware(
     CORSMiddleware,
