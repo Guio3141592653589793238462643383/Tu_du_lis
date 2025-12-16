@@ -1,166 +1,228 @@
-📝 Tu-du-lis — Fullstack To-Do App
+# 📝 PROYECTO FORMATIVO – TU‑DU‑LIS
 
-Tu-du-lis es una aplicación fullstack para la gestión de tareas, construida con React (Vite) en el frontend, FastAPI en el backend y PostgreSQL como base de datos.
-El frontend se despliega en Netlify y el backend en Render.
+## PROCESO DE GESTIÓN DE FORMACIÓN PROFESIONAL INTEGRAL
 
-🚀 Tecnologías
-Frontend
+---
 
-React + Vite
+## 1. Información General
 
-Fetch API
+**Nombre del proyecto:** Tu‑du‑lis – Aplicación Fullstack de Gestión de Tareas (To‑Do List)  
+**Programa de formación:** Análisis y Desarrollo de Software  
+**Tipo de proyecto:** Proyecto formativo – Evidencia técnica  
+**Aprendiz:** Andrés Felipe Guio Aponte  
+**Repositorio GitHub:** https://github.com/Guio3141592653589793238462643383  
+**Licencia:** Uso libre con fines educativos
 
-Netlify (Hosting)
+---
 
-Backend
+## 2. Descripción del Proyecto
 
-FastAPI
+**Tu‑du‑lis** es una aplicación **fullstack** para la gestión de tareas (To‑Do List), desarrollada con tecnologías modernas de desarrollo web. El proyecto permite crear, listar, actualizar y eliminar tareas mediante una interfaz gráfica en React y un backend en FastAPI conectado a una base de datos PostgreSQL.
 
-Uvicorn
+El objetivo del proyecto es aplicar los conocimientos adquiridos en desarrollo frontend, backend, consumo de APIs REST, manejo de bases de datos y despliegue en la nube.
 
-PostgreSQL
+---
 
-psycopg2
+## 3. Tecnologías Utilizadas
 
-Render (Hosting)
+### Frontend
+- React
+- Vite
+- JavaScript (JSX)
+- Fetch API
 
-📦 Estructura del proyecto
-Tu_du_lis/
+### Backend
+- FastAPI
+- Python
+- Uvicorn
+- PostgreSQL
+- psycopg2
+
+### Herramientas adicionales
+- Git y GitHub
+- Netlify (despliegue frontend)
+- Render (despliegue backend)
+- Visual Studio Code
+
+---
+
+## 4. Estructura del Proyecto
+
+La estructura real del proyecto es la siguiente:
+
+```
+TU_DU_LIS/
 │
-├── backend/
-│   ├── main.py
-│   ├── requirements.txt
-│   ├── .env
-│   └── venv/
+├── .vscode/
+│   └── settings.json
 │
-└── frontend/
-    ├── src/
-    ├── index.html
-    ├── vite.config.js
-    └── package.json
+├── __pycache__/
+├── venv/
+├── .env
+├── main.py
+├── requirements.txt
+│
+├── node_modules/
+├── public/
+├── src/
+│   ├── assets/
+│   ├── App.css
+│   ├── App.jsx
+│   ├── index.css
+│   └── main.jsx
+│
+├── .gitignore
+├── eslint.config.js
+├── index.html
+├── package-lock.json
+├── package.json
+├── README.md
+└── vite.config.js
+```
 
-⚙️ Backend (FastAPI)
-▶️ Ejecutar localmente
+---
 
-Crear entorno virtual
+## 5. Backend – FastAPI
 
+El backend está desarrollado en **FastAPI** y se encuentra en el archivo `main.py` ubicado en la raíz del proyecto.
+
+### Ejecución local del backend
+
+1. Crear el entorno virtual:
+
+```bash
 python -m venv venv
+```
 
+2. Activar el entorno virtual:
 
-Activarlo
-
-Windows:
-
+**Windows**
+```bash
 venv\Scripts\activate
+```
 
-
-Linux/MacOS:
-
+**Linux / MacOS**
+```bash
 source venv/bin/activate
+```
 
+3. Instalar dependencias:
 
-Instalar dependencias
-
+```bash
 pip install -r requirements.txt
+```
 
+4. Crear el archivo `.env` con la cadena de conexión a la base de datos:
 
-Crear archivo .env
+```env
+DATABASE_URL=postgresql://usuario:password@host:puerto/nombre_db
+```
 
-DATABASE_URL=postgresql://<usuario>:<password>@<host>/<database>
+5. Ejecutar el servidor:
 
-
-Ejecutar servidor
-
+```bash
 uvicorn main:app --reload
+```
 
-▶️ Endpoint principal
-Método	URL	Descripción
-GET	/tasks	Obtener tareas
-POST	/tasks	Crear nueva tarea
-PUT	/tasks/{id}	Actualizar tarea
-DELETE	/tasks/{id}	Eliminar tarea
-🌐 Frontend (React)
-▶️ Ejecutar localmente
+El backend se ejecuta en:
 
-Instalar dependencias:
+```
+http://localhost:8000
+```
 
+---
+
+### Endpoints disponibles
+
+| Método | Endpoint | Descripción |
+|------|----------|-------------|
+| GET | /tasks | Obtener todas las tareas |
+| POST | /tasks | Crear una nueva tarea |
+| PUT | /tasks/{id} | Actualizar una tarea |
+| DELETE | /tasks/{id} | Eliminar una tarea |
+
+---
+
+## 6. Frontend – React + Vite
+
+### Ejecución local del frontend
+
+1. Instalar dependencias:
+
+```bash
 npm install
+```
 
+2. Ejecutar el servidor de desarrollo:
 
-Ejecutar servidor de desarrollo:
-
+```bash
 npm run dev
+```
 
+3. Abrir en el navegador:
 
-Ver en el navegador:
-
+```
 http://localhost:5173
+```
 
-▶️ Conexión al backend
+---
 
-Editar la URL del backend en tu frontend:
+### Conexión Frontend – Backend
 
+La URL del backend se configura directamente en el código del frontend, por ejemplo:
+
+```js
+const API_URL = "http://localhost:8000";
+```
+
+En producción:
+
+```js
 const API_URL = "https://tu-du-lis.onrender.com";
+```
 
-☁️ Deploy
-Backend en Render
+---
 
-Subir backend a GitHub.
+## 7. Despliegue del Proyecto
 
-Crear un servicio Web Service en Render.
+### Backend
+- Desplegado en **Render**
+- Comando de inicio:
 
-Configurar el Start Command:
-
+```bash
 uvicorn main:app --host 0.0.0.0 --port $PORT
+```
 
+- Variable de entorno configurada:
 
-Añadir variable de entorno:
-
+```
 DATABASE_URL
+```
 
-Frontend en Netlify
+### Frontend
+- Desplegado en **Netlify**
+- Build command: `npm run build`
+- Publish directory: `dist`
 
-Subir frontend a GitHub.
+---
 
-En Netlify seleccionar “Deploy from Git”.
+## 8. Control de Versiones
 
-Build command:
+El proyecto utiliza **Git** para el control de versiones y se encuentra alojado en **GitHub**, permitiendo el seguimiento de cambios y la colaboración.
 
-npm run build
+---
 
+## 9. Estado Final del Proyecto
 
-Public directory:
+✔ Backend operativo y conectado a PostgreSQL  
+✔ Frontend funcional en React + Vite  
+✔ Comunicación correcta entre frontend y backend  
+✔ Proyecto desplegado en la nube  
+✔ Cumple con los objetivos del proyecto formativo
 
-dist
+---
 
-🗄️ requirements.txt (Cómo actualizarlo)
+## 10. Licencia
 
-Cada vez que instales una librería, ejecuta:
+Este proyecto es de **uso libre**, con fines educativos. Puede ser utilizado, modificado y adaptado sin restricciones para el aprendizaje y la formación.
 
-pip freeze > requirements.txt
-
-
-Render usará este archivo para recrear tu entorno.
-
-🧹 .gitignore recomendado
-# Python
-venv/
-__pycache__/
-*.pyc
-.env
-
-# Node
-node_modules/
-dist/
-.DS_Store
-
-# Logs
-*.log
-
-✅ Estado final
-
-✔️ Backend funcionando en Render
-✔️ Frontend funcionando en Netlify
-✔️ Base de datos conectada
-✔️ CORS configurado
-✔️ Requests funcionando entre front y back
